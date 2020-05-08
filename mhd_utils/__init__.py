@@ -80,11 +80,7 @@ def load_raw_data_with_mhd(filename):
     # print(arr)
     volume = np.prod(arr[0:dim - 1])
     # print(volume)
-    pwd = os.path.split(filename)[0]
-    if pwd:
-        data_file = pwd + '/' + meta_dict['ElementDataFile']
-    else:
-        data_file = meta_dict['ElementDataFile']
+    data_file = meta_dict['ElementDataFile']
 
     shape = (arr[dim - 1], volume, element_channels)
     with open(data_file,'rb') as fid:
